@@ -1,13 +1,32 @@
-body {
-  padding: 50px;
+.body {
+  margin: 80px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee;
 }
 
 a {
   color: #00B7FF;
 }
 
+h1 {
+	width: 30%;
+	text-align: center;
+}
+
 form {
 	width: 30%;
+	float: left;
+}
+
+#image {
+	width: 65%;
+	float: right;
+	text-align: center;
+}
+
+#image img {
+	margin: 10 auto;
+	border: 1px solid black;
+	text-align: center;
 }
 

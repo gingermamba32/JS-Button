@@ -121,12 +121,23 @@
   document.getElementsByTagName('title')[0].textContent = "This is a payment site!!";
 
   var newBody = document.createElement('body'); 
+  newBody.setAttribute('class', 'body');
   var wholething = document.getElementsByTagName('html')[0];
   wholething.replaceChild(newBody, document.body)
 
   var headerPage = document.createElement('h1');
+  headerPage.setAttribute('class', 'bg-primary');
   headerPage.textContent = 'This is a payment site!!!';
   newBody.appendChild(headerPage);
+
+  var imageDiv = document.createElement('div');
+  imageDiv.setAttribute('id', 'image');
+  var image = document.createElement('img');
+  image.setAttribute('src', 'http://ses.org.nz/wp-content/uploads/2010/01/iStock_000006141811XSmall.jpg');
+  image.setAttribute('class', 'img-thumbnail');
+  imageDiv.appendChild(image);
+  newBody.appendChild(imageDiv);
+
 
   //make a table
   var formtitle = document.createElement('h2');
@@ -209,6 +220,7 @@
 
   function buildinputDiv(id, message){
   	var div = document.createElement('div');
+  	div.setAttribute('class', 'form-group');
   	var label = document.createElement('label');
   	var box = document.createElement('input');
   	var button = document.createElement('input');
@@ -217,7 +229,7 @@
   	//button.setAttribute('class', "btn btn-default");
   	box.setAttribute('type', 'text');
   	box.setAttribute('class', 'form-control');
-  	box.setAttribute('id', 'name');
+  	box.setAttribute('id', id);
 
   	div.setAttribute('class', 'form-group');
 
@@ -240,20 +252,53 @@
   form.appendChild(creditDiv);
   form.appendChild(cityDiv);
   form.appendChild(stateDiv);
+  //form.setAttribute('class', 'bg-danger');
 
 
   var buttonDiv = document.createElement('div');
   var buttonLabel = document.createElement('label');
   var newButton = document.createElement('button');
   newButton.setAttribute('type', 'submit');  //submit is default
-  newButton.setAttribute('class', 'btn btn-primary');
+  newButton.setAttribute('class', 'btn btn-primary btn-lg btn-block');
   newButton.setAttribute('input', 'form-data');
-  newButton.textContent = "BUTTON";
-
-
-  form.appendChild(newButton);
+  newButton.textContent = "SUBMIT";
 
   //Make the button submit the form data successfully
+
+  //document.getElementsByTagName('button').formNoValidate = false;
+  form.appendChild(newButton);
+
+  //function validate(){
+  	//console.log(email)
+  //}
+
+ function validate(){
+  	//alert(document.getElementById('email').value);
+  	var email = document.getElementById('email').value;
+  	console.log(email);
+  	if (!/.+@.+\.com/.test(email)){
+  	alert(email + ' is not an email.');
+  	}
+
+  	var creditnumcheck = document.getElementById('credit').value;
+  	console.log(credit);
+  	if(credit.length !== 16){
+  		console.log(credit);
+  		alert('Please enter a 16 digit credit card number!');
+
+  	}
+  };
+
+newButton.addEventListener('click', validate);
+
+
+
+//var image = document.createElement('div');
+
+
+  
+
+  
 
 
 
